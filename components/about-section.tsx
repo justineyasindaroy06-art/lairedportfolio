@@ -12,7 +12,7 @@ export function AboutSection() {
             <div className="absolute -inset-4 rounded-3xl brand-gradient opacity-20 blur-2xl" aria-hidden />
             <div className="relative aspect-square overflow-hidden rounded-2xl border border-border">
               <Image
-                src="/images/justine-portrait.png"
+                src="/images/profile-portrait.png"
                 alt="Portrait of Justine Daroy, Executive Assistant and AI Automation specialist"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

@@ -10,13 +10,13 @@ export function AboutSection() {
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl brand-gradient opacity-20 blur-2xl" aria-hidden />
-            <div className="relative aspect-square overflow-hidden rounded-2xl border border-border">
+            <div className="relative aspect-[1122/1402] overflow-hidden rounded-2xl border border-border">
               <Image
                 src="/images/profile-portrait.png"
-                alt="Portrait of Justine Daroy, Executive Assistant and AI Automation specialist"
+                alt="Portrait of Justine Daroy, Executive Assistant and AI Automation specialist, surrounded by AI and productivity tool graphics"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain"
                 priority
               />
             </div>

@@ -4,7 +4,6 @@ import { useState, type FormEvent } from 'react'
 import { CheckCircle2, Mail, Phone } from 'lucide-react'
 import { LinkedInIcon } from '@/components/icons/linkedin-icon'
 import {
-  budgetOptions,
   contactInfo,
   serviceOptions,
 } from '@/lib/portfolio-data'
@@ -89,19 +88,17 @@ export function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="budget" className="mb-2 block text-sm font-medium">
-                Budget Range
+              <label htmlFor="phone" className="mb-2 block text-sm font-medium">
+                Contact Number
               </label>
-              <select id="budget" name="budget" className={inputClasses} defaultValue="">
-                <option value="" disabled>
-                  Select budget range
-                </option>
-                {budgetOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                placeholder="+63 912 345 6789"
+                className={inputClasses}
+              />
             </div>
 
             <div>
@@ -129,21 +126,21 @@ export function ContactSection() {
         <div className="mt-12 border-t border-border pt-12 text-center">
           <p className="mb-6 text-muted-foreground">Or reach out directly</p>
           <div className="flex flex-col items-center gap-4">
-            <a
+            
               href={`mailto:${contactInfo.email}`}
               className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground"
             >
               <Mail className="size-4" />
               {contactInfo.email}
             </a>
-            <a
+            
               href={contactInfo.phoneHref}
               className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground"
             >
               <Phone className="size-4" />
               {contactInfo.phone}
             </a>
-            <a
+            
               href={contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"

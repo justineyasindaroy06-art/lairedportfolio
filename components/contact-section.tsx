@@ -126,14 +126,14 @@ export function ContactSection() {
         <div className="mt-12 border-t border-border pt-12 text-center">
           <p className="mb-6 text-muted-foreground">Or reach out directly</p>
           <div className="flex flex-col items-center gap-4">
-            
+           <a 
               href={`mailto:${contactInfo.email}`}
               className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground"
             >
               <Mail className="size-4" />
               {contactInfo.email}
             </a>
-            
+            <a
               href={contactInfo.phoneHref}
               className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground"
             >

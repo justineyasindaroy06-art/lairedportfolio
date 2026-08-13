@@ -20,10 +20,7 @@ export function ContactSection() {
   }
 
   return (
-    <section
-      id="contact"
-      className="border-t border-border/40 px-6 py-24"
-    >
+    <section id="contact" className="border-t border-border/40 px-6 py-24">
       <div className="mx-auto max-w-2xl">
         <h2 className="text-center font-display text-4xl font-bold text-balance">
           Let&apos;s Work Together
@@ -126,26 +123,15 @@ export function ContactSection() {
         <div className="mt-12 border-t border-border pt-12 text-center">
           <p className="mb-6 text-muted-foreground">Or reach out directly</p>
           <div className="flex flex-col items-center gap-4">
-           <a 
-              href={`mailto:${contactInfo.email}`}
-              className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground"
-            >
+            <a href={`mailto:${contactInfo.email}`} className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground">
               <Mail className="size-4" />
               {contactInfo.email}
             </a>
-            <a
-              href={contactInfo.phoneHref}
-              className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground"
-            >
+            <a href={contactInfo.phoneHref} className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground">
               <Phone className="size-4" />
               {contactInfo.phone}
             </a>
-            
-              href={contactInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground"
-            >
+            <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary transition-colors hover:text-foreground">
               <LinkedInIcon className="size-4" />
               LinkedIn
             </a>

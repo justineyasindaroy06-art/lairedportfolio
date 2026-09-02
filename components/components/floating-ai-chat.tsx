@@ -54,12 +54,18 @@ export function FloatingAiChat() {
     }
   }
 
-  if (text.includes("contact") || text.includes("hire")) {
+  if (
+  text.includes("contact") ||
+  text.includes("hire") ||
+  text.includes("book") ||
+  text.includes("consultation") ||
+  text.includes("schedule")
+) {
     return {
-      role: "assistant",
-      content: "You can contact Justine through the Contact section of this portfolio.",
-    }
-  }
+  role: "assistant",
+  content: "You can book a consultation with Justine using the link below.",
+  link: "https://calendar.app.google/CmSjNR3wXgspUfvU6",
+}
 
   return {
     role: "assistant",

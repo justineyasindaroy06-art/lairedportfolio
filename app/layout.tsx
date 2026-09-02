@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
-
+import { FloatingAiChat } from '@/components/components/floating-ai-chat'
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
@@ -57,9 +57,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark scroll-smooth bg-background ${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
+  {children}
+
+  <FloatingAiChat />
+
+  {process.env.NODE_ENV === 'production' && ...}
+</body>
     </html>
   )
 }

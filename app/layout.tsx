@@ -61,7 +61,7 @@ export default function RootLayout({
 
   <FloatingAiChat />
 
-  {process.env.NODE_ENV === 'production' && ...}
+  {process.env.NODE_ENV === 'production' && <Analytics />}
 </body>
     </html>
   )

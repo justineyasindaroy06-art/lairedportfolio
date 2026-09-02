@@ -5,6 +5,7 @@ import { useState } from "react"
 type Message = {
   role: "user" | "assistant"
   content: string
+  link?: string
 }
 
 export function FloatingAiChat() {
@@ -17,27 +18,55 @@ export function FloatingAiChat() {
     },
   ])
 
-  function getResponse(message: string) {
-    const text = message.toLowerCase()
+  function getResponse(message: string): Message {
+  const text = message.toLowerCase()
 
-    if (text.includes("service")) {
-      return "Justine offers Executive Assistant support, AI Automation, Workflow Optimization, and Process Documentation."
+  if (
+    text.includes("consultation") ||
+    text.includes("book") ||
+    text.includes("schedule") ||
+    text.includes("calendar")
+  ) {
+    return {
+      role: "assistant",
+      content: "You can book a consultation with Justine here:",
+      link: "https://calendar.app.google/CmSjNR3wXgspUfvU6",
     }
-
-    if (text.includes("experience") || text.includes("background")) {
-      return "Justine is a Freelance Executive Assistant who supports professionals by building organized workflows and efficient systems."
-    }
-
-    if (text.includes("automation") || text.includes("ai")) {
-      return "Justine is building AI-powered workflows to reduce repetitive work and create more efficient business processes."
-    }
-
-    if (text.includes("contact") || text.includes("hire")) {
-      return "You can contact Justine through the Contact section of this portfolio."
-    }
-
-    return "Thanks for your question! For this portfolio demo, I can tell you about Justine's services, experience, AI automation work, and how to contact her."
   }
+
+  if (text.includes("service")) {
+    return {
+      role: "assistant",
+      content:
+        "Justine offers Executive Assistant support, AI Automation, Workflow Optimization, and Process Documentation.",
+    }
+  }
+
+  if (text.includes("experience") || text.includes("background")) {
+    return {
+      role: "assistant",
+      content:
+        "Justine is a Freelance Executive Assistant who supports professionals by building organized workflows and efficient systems.",
+  const reply = getResponse(input)
+      role: "assistant",
+      content:
+        "Justine is building AI-powered workflows to reduce repetitive work and create more efficient business processes.",
+    }
+  }
+
+  if (text.includes("contact") || text.includes("hire")) {
+    return {
+      role: "assistant",
+      content: "You can contact Justine through the Contact section of this portfolio.",
+    }
+  }
+
+  return {
+    role: "assistant",
+    content:
+      "Thanks for your question! For this portfolio demo, I can tell you about Justine's services, experience, AI automation work, and how to contact her.",
+  }
+}
 
   function sendMessage() {
     if (!input.trim()) return
@@ -47,10 +76,13 @@ export function FloatingAiChat() {
       content: input,
     }
 
-    const reply: Message = {
-      role: "assistant",
-      content: getResponse(input),
-    }
+const response = getResponse(input)
+
+const reply: Message = {
+  role: "assistant",
+  content: response.content,
+  link: response.link,
+}
 
     setMessages((current) => [...current, userMessage, reply])
     setInput("")
@@ -85,7 +117,18 @@ export function FloatingAiChat() {
                     : "bg-zinc-800 text-gray-200"
                 }`}
               >
-                {message.content}
+                <p>{message.content}</p>
+
+{message.link && (
+  <a
+    href={message.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-2 inline-block text-sm font-medium text-purple-400 underline hover:text-purple-300"
+  >
+    Schedule a Consultation →
+  </a>
+)}
               </div>
             ))}
           </div>

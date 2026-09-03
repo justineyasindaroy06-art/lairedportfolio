@@ -47,10 +47,9 @@ export function FloatingAiChat() {
       role: "assistant",
       content:
         "Justine is a Freelance Executive Assistant who supports professionals by building organized workflows and efficient systems.",
-  const reply = getResponse(input)
-      role: "assistant",
-      content:
-        "Justine is building AI-powered workflows to reduce repetitive work and create more efficient business processes.",
+  
+      
+      
     }
   }
 

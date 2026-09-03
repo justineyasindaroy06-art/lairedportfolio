@@ -9,18 +9,15 @@ export function AboutSection() {
 
           {/* Introduction Video */}
           <div className="relative">
-            <div
-              className="absolute -inset-4 rounded-3xl brand-gradient opacity-20 blur-2xl"
-              aria-hidden
-            />
+            <div className="absolute -inset-4 rounded-3xl brand-gradient opacity-20 blur-2xl" />
 
             <div className="relative overflow-hidden rounded-2xl border border-border">
               <video
                 controls
-                className="aspect-video w-full"
+                className="w-full rounded-2xl"
               >
                 <source
-                  src="/video611688262630254284.mp4"
+                  src="/introduction.mp4.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -50,11 +47,11 @@ export function AboutSection() {
               </p>
 
               <p>
-                Today, I&apos;m expanding my expertise in AI automation, workflow
-                design, and business systems to help modern businesses save time,
-                improve productivity, and build scalable operations. I believe
-                great systems allow great people to focus on meaningful work
-                instead of manual processes.
+                Today, I&apos;m expanding my expertise in AI automation,
+                workflow design, and business systems to help modern businesses
+                save time, improve productivity, and build scalable operations.
+                I believe great systems allow great people to focus on meaningful
+                work instead of manual processes.
               </p>
             </div>
 

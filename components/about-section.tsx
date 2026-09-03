@@ -1,12 +1,4 @@
-"use client"
-
-import { useState } from "react"
-import Image from "next/image"
-import { Play } from "lucide-react"
-
 export function AboutSection() {
-  const [playing, setPlaying] = useState(false)
-
   return (
     <section
       id="about"
@@ -14,23 +6,29 @@ export function AboutSection() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-12 md:grid-cols-2">
+
+          {/* Introduction Video */}
           <div className="relative">
             <div
               className="absolute -inset-4 rounded-3xl brand-gradient opacity-20 blur-2xl"
               aria-hidden
             />
-            <div className="relative aspect-[1122/1402] overflow-hidden rounded-2xl border border-border">
-              <Image
-                src="/images/profile-portrait.png"
-                alt="Portrait of Justine Daroy, Executive Assistant and AI Automation specialist, surrounded by AI and productivity tool graphics"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain"
-                priority
-              />
+
+            <div className="relative overflow-hidden rounded-2xl border border-border">
+              <video
+                controls
+                className="aspect-video w-full"
+              >
+                <source
+                  src="/video611688262630254284.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
 
+          {/* About Content */}
           <div>
             <h2 className="font-display text-4xl font-bold">
               About Me
@@ -61,7 +59,9 @@ export function AboutSection() {
             </div>
 
             <div className="mt-8 rounded-xl border border-border bg-card/60 p-6">
-              <p className="font-semibold text-primary">Mission</p>
+              <p className="font-semibold text-primary">
+                Mission
+              </p>
 
               <p className="mt-4 text-muted-foreground">
                 Help businesses work smarter by combining exceptional executive
@@ -70,46 +70,7 @@ export function AboutSection() {
               </p>
             </div>
           </div>
-        </div>
 
-        {/* Introduction Video */}
-        <div className="mx-auto mt-16 max-w-md">
-          <h3 className="mb-4 text-center font-display text-2xl font-bold">
-            A Quick Introduction
-          </h3>
-
-          <div className="relative aspect-[9/16] overflow-hidden rounded-2xl border border-border bg-black">
-            {playing ? (
-              <video
-                src="/videos/intro.mp4"
-                controls
-                autoPlay
-                playsInline
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setPlaying(true)}
-                className="group relative block h-full w-full"
-                aria-label="Play introduction video"
-              >
-                <Image
-                  src="/videos/intro-poster.jpg"
-                  alt="Preview of Justine Daroy's video introduction"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover"
-                />
-
-                <span className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/40">
-                  <span className="brand-gradient flex size-16 items-center justify-center rounded-full shadow-lg">
-                    <Play className="ml-1 size-7 fill-white text-white" />
-                  </span>
-                </span>
-              </button>
-            )}
-          </div>
         </div>
       </div>
     </section>

@@ -28,7 +28,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block">
         <div className="relative h-full w-full">
           <Image
-            src="/profile-portait.png"
+            src="/images/profile-portrait.png"
             alt=""
             fill
             priority

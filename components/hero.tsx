@@ -12,23 +12,43 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center px-6 pt-20"
+      className="relative min-h-screen overflow-hidden px-6 pt-20"
     >
-      {/* Soft radial glow */}
+      {/* Background glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(circle at 50% 35%, color-mix(in oklch, var(--primary) 12%, transparent) 0%, transparent 60%)',
+            'radial-gradient(circle at 70% 45%, color-mix(in oklch, var(--primary) 14%, transparent) 0%, transparent 55%)',
         }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-2">
+      {/* Blended portrait background */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block">
+        <div className="relative h-full w-full">
+          <Image
+            src="/profile-portait.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+          />
 
-        {/* LEFT SIDE - TEXT */}
-        <div>
-          {/* Badges */}
+          {/* Fade image into website background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to right, var(--background) 0%, transparent 35%), linear-gradient(to bottom, var(--background) 0%, transparent 18%, transparent 80%, var(--background) 100%)',
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl items-center">
+        <div className="max-w-2xl py-20 text-left">
           <div className="mb-8 flex flex-wrap gap-2">
             {heroBadges.map((badge) => (
               <span
@@ -40,22 +60,18 @@ export function Hero() {
             ))}
           </div>
 
-          {/* Heading */}
-          <h1 className="font-display text-5xl font-bold leading-tight text-balance md:text-6xl lg:text-7xl">
+          <h1 className="font-display text-5xl font-bold leading-tight text-balance md:text-7xl">
             Building Smarter Workflows with{' '}
-            <span className="gradient-text">
-              AI &amp; Automation
-            </span>
+            <span className="gradient-text">AI &amp; Automation</span>
           </h1>
 
-          {/* Description */}
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl">
-            I partner with healthcare professionals and eCommerce brands to build
-            organized operations through executive support, AI automation, and
-            scalable systems that drive efficiency and long-term growth.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl">
+            I partner with healthcare professionals and eCommerce brands to
+            build organized operations through executive support, AI
+            automation, and scalable systems that drive efficiency and
+            long-term growth.
           </p>
 
-          {/* Buttons */}
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <button
               onClick={() => scrollToSection('contact')}
@@ -72,7 +88,6 @@ export function Hero() {
             </button>
           </div>
 
-          {/* Scroll Down */}
           <button
             onClick={() => scrollToSection('about')}
             aria-label="Scroll to about section"
@@ -81,26 +96,6 @@ export function Hero() {
             <ArrowDown className="size-6" />
           </button>
         </div>
-
-        {/* RIGHT SIDE - PROFILE IMAGE */}
-        <div className="relative flex justify-center lg:justify-end">
-          <div
-            aria-hidden
-            className="absolute inset-0 rounded-full brand-gradient opacity-20 blur-3xl"
-          />
-
-          <div className="relative w-full max-w-xl">
-            <Image
-              src="/images/profile-portrait.png"
-              alt="Justine Daroy, Executive Assistant and AI Automation specialist"
-              width={1122}
-              height={1402}
-              priority
-              className="h-auto w-full object-contain"
-            />
-          </div>
-        </div>
-
       </div>
     </section>
   )

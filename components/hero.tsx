@@ -25,14 +25,14 @@ export function Hero() {
       />
 
       {/* Blended portrait background */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block">
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[38%] lg:block">
         <div className="relative h-full w-full">
           <Image
             src="/images/profile-portrait.png"
             alt=""
             fill
             priority
-            className="object-cover object-center"
+            className="object-contain object-center"
           />
 
           {/* Fade image into website background */}
